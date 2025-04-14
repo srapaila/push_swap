@@ -6,7 +6,7 @@
 /*   By: srapaila <srapaila@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 16:43:06 by srapaila          #+#    #+#             */
-/*   Updated: 2025/04/10 17:08:53 by srapaila         ###   ########.fr       */
+/*   Updated: 2025/04/14 20:05:20 by srapaila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,24 @@ void sort_five(t_stack **a, t_stack **b)
 void sort_all(t_stack **a, t_stack **b)
 {
     int size;
-
+    
     size = lst_size(*a);
-    if(size-- > 3 && !stack_sorted(*a))
+    if (size-- > 3 && !stack_sorted(*a))
         pb(a, b);
-    if(size-- > 3 && !stack_sorted(*a))
+    if (size-- > 3 && !stack_sorted(*a))
         pb(a, b);
+    while (size-- > 3 && !stack_sorted(*a))
+    {
+        init_a(*a, *b);
+        push_to_b(a, b);
+    }
+    sort_three(a);
+    while (*b)
+    {
+        init_b(*a, *b);
+        push_to_a(a, b);
+    }
+    assign_index(*a);
+    final_sort(a);
 }
 

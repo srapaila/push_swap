@@ -6,7 +6,7 @@
 /*   By: srapaila <srapaila@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 19:57:25 by srapaila          #+#    #+#             */
-/*   Updated: 2025/04/10 19:23:05 by srapaila         ###   ########.fr       */
+/*   Updated: 2025/04/14 16:50:52 by srapaila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,84 +73,17 @@ void free_lst(t_stack **lst)
 
 }
 
-int ft_min(int a, int b)
+t_stack *get_cheapest(t_stack *stack)
 {
-    if (a < b)
-        return a;
-    else
-        return b;
-}
-
-int ft_abs(int n)
-{
-    if (n < 0)
-        return (-n);
-    return (n);
-}
-
-void put_index(t_stack **a)
-{
-    t_stack *lst;
-    t_stack *current;
-    t_stack *tmp;
-    int i;
-
-    lst = stack_dup(*a);
-    sort_list(lst);
-    tmp = *a;
-    while(tmp)
+    if (!stack)
+        return (NULL);
+    while (stack)
     {
-        i = 0;
-        current = lst;
-        while(current)
-        {
-            if (current->nbr == tmp->nbr)
-            {
-                tmp->index = i;
-                break;
-            }
-            current = current->next;
-            i++;
-        }
-        tmp = tmp->next;
+        if (stack->cheapest)
+            return (stack);
+        stack = stack->next;
     }
-    free_lst(&lst);
-}
-
-t_stack  *sort_list(t_stack *src)
-{
-    t_stack *lst;
-    t_stack *head;
-    t_stack *i;
-
-    lst = src;
-    head = src;
-    while(lst)
-    {
-        i = lst->next;
-        while(i)
-        {
-            if (lst->nbr > i->nbr)
-                ft_swap(&lst->nbr, &i->nbr);
-            i = i->next;
-        }
-        lst = lst->next;
-    }
-    return (head);
+    return (NULL);
 }
 
 
-t_stack *stack_dup(t_stack *src)
-{
-    t_stack *dest;
-    t_stack *tmp;
-
-    dest = NULL;
-    tmp = src;
-    while (tmp)
-    {
-        lst_add_back(&dest, new_node(tmp->nbr));
-        tmp = tmp->next;
-    }
-    return (dest);
-}

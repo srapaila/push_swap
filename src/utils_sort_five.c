@@ -14,8 +14,8 @@
 
 void push_two_min(t_stack **a, t_stack **b)
 {
-    int min1;
-    int min2;
+    long min1;
+    long min2;
     int size;
     int i;
 
@@ -32,7 +32,7 @@ void push_two_min(t_stack **a, t_stack **b)
     }
 }
 
-void find_two_min(t_stack *stack, int *min1, int *min2)
+void find_two_min(t_stack *stack, long *min1, long *min2)
 {
     t_stack *current;
 
@@ -58,7 +58,7 @@ void find_two_min(t_stack *stack, int *min1, int *min2)
     }
 }
 
-void ft_swap(int *a, int *b)
+void ft_swap(long *a, long *b)
 {
     long tmp;
 

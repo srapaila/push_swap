@@ -6,7 +6,7 @@
 /*   By: srapaila <srapaila@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 20:32:27 by srapaila          #+#    #+#             */
-/*   Updated: 2025/04/07 19:33:11 by srapaila         ###   ########.fr       */
+/*   Updated: 2025/04/14 18:41:43 by srapaila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ int check_dup(t_stack *a)
 int stack_sorted(t_stack *a)
 {
     int i;
-
+    
+    if (!a)
+        return (1);
     i = a->nbr;
     while (a)
     {

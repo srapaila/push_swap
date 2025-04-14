@@ -6,7 +6,7 @@
 /*   By: srapaila <srapaila@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 15:44:31 by srapaila          #+#    #+#             */
-/*   Updated: 2025/04/10 19:02:42 by srapaila         ###   ########.fr       */
+/*   Updated: 2025/04/14 18:55:17 by srapaila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,9 @@ int main(int argc, char **argv)
         free_lst(&a);
         return(write(2, "Error\n", 6), -1);
     }
+    put_index(&a);
     if (!stack_sorted(a))
     {
-        put_index(&a);
         push_swap(&a, &b);
     }
     free_lst(&a);

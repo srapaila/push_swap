@@ -7,11 +7,11 @@ LIBC = ar rcs
 
 SRCS = ft_split.c ft_isdigit.c ft_strlen.c
 
-PRINTF_SRCS = ft_printf/ft_putchar.c ft_printf/ft_putnbr.c ft_printf/ft_printf.c ft_printf/ft_putstr.c \
+#PRINTF_SRCS = ft_printf/ft_putchar.c ft_printf/ft_putnbr.c ft_printf/ft_printf.c ft_printf/ft_putstr.c \
 			  ft_printf/ft_putnbr_unsigned.c ft_printf/ft_putexa.c \
 			  ft_printf/ft_put_adress.c ft_printf/ft_putptr.c
 
-GNL_SRCS =  get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
+#GNL_SRCS =  get_next_line/get_next_line.c get_next_line/get_next_line_utils.c
 
 SRCS_ALL = $(SRCS) $(SRCSBONUS) $(PRINTF_SRCS) $(GNL_SRCS)
 
