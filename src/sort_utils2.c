@@ -6,7 +6,7 @@
 /*   By: srapaila <srapaila@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 18:48:09 by srapaila          #+#    #+#             */
-/*   Updated: 2025/04/14 19:36:28 by srapaila         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:54:39 by srapaila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,27 @@ void push_to_b(t_stack **a, t_stack **b)
 
     cheapest_node = get_cheapest(*a);
     if (cheapest_node->above_median
-        && cheapest_node->target_pos->above_median)
+        && cheapest_node->target_node->above_median)
         r_both_stacks(a, b, cheapest_node);
     else if (!(cheapest_node->above_median)
-            && !(cheapest_node->target_pos->above_median))
+            && !(cheapest_node->target_node->above_median))
         rr_both_stacks(a, b, cheapest_node);
     pre_push(a, cheapest_node, 'a');
-    pre_push(b, cheapest_node->target_pos, 'b');
+    pre_push(b, cheapest_node->target_node, 'b');
     pb(a, b);
 }
 
 void r_both_stacks(t_stack **a, t_stack **b, t_stack *cheapest_node)
 {
-    while(*b != cheapest_node->target_pos && *a != cheapest_node)
-        rr(a, b);
+    while(*b != cheapest_node->target_node && *a != cheapest_node)
+        rr(a, b, true);
     assign_index(*a);
     assign_index(*b);
 }
 void rr_both_stacks(t_stack **a, t_stack **b, t_stack *cheapest_node)
 {
-    while(*b != cheapest_node->target_pos && *a != cheapest_node)
-        rrr(a, b);
+    while(*b != cheapest_node->target_node && *a != cheapest_node)
+        rrr(a, b, true);
     assign_index(*a);
     assign_index(*b);
 }
@@ -50,16 +50,16 @@ void pre_push(t_stack **stack, t_stack *top_node, char name)
         if (name == 'a')
         {
             if(top_node->above_median)
-                ra(stack);
+                ra(stack, true);
             else
-                rra(stack);
+                rra(stack, true);
         }
         else if (name == 'b')
-        {   
+        {
             if(top_node->above_median)
-                rb(stack);
+                rb(stack, true);
             else
-                rrb(stack);
+                rrb(stack, true);
         }
     }
 }

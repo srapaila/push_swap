@@ -6,7 +6,7 @@
 /*   By: srapaila <srapaila@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 15:45:04 by srapaila          #+#    #+#             */
-/*   Updated: 2025/04/14 19:36:43 by srapaila         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:53:47 by srapaila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@
 
 typedef struct s_stack
 {
-    long    nbr;
-    long    index;
+    int    nbr;
+    int    index;
     int     push_cost;
-    bool     above_median;
+    bool    above_median;
     bool    cheapest;
-    struct s_stack  *target_pos;
+    struct s_stack  *target_node;
     struct s_stack  *next;
 }           t_stack;
 
@@ -47,8 +47,8 @@ t_stack *get_cheapest(t_stack *stack);
 
 //utils_sort_five
 void push_two_min(t_stack **a, t_stack **b);
-void find_two_min(t_stack *stack, long *min1, long *min2);
-void ft_swap(long *a, long *b);
+void find_two_min(t_stack *stack, int *min1, int *min2);
+void ft_swap(int *a, int *b);
 int get_max(t_stack **stack);
 int get_min(t_stack **stack);
 
@@ -60,15 +60,15 @@ bool is_valid_number(const char *str);
 //operations
 void pa(t_stack **a, t_stack **b);
 void pb(t_stack **a, t_stack **b);
-void sa(t_stack **a);
-void sb(t_stack **b);
-void ss(t_stack **a, t_stack **b);
-void ra(t_stack **a);
-void rb(t_stack **b);
-void rr(t_stack **a, t_stack **b);
-void rra(t_stack **a);
-void rrb(t_stack **b);
-void rrr(t_stack **a, t_stack **b);
+void sa(t_stack **a, bool print);
+void sb(t_stack **b, bool print);
+void ss(t_stack **a, t_stack **b, bool print);
+void ra(t_stack **a, bool print);
+void rb(t_stack **b, bool print);
+void rr(t_stack **a, t_stack **b, bool print);
+void rra(t_stack **a, bool print);
+void rrb(t_stack **b, bool print);
+void rrr(t_stack **a, t_stack **b, bool print);
 void print_stack(t_stack *stack);
 
 
@@ -103,7 +103,5 @@ void push_to_a(t_stack **a, t_stack **b);
 void put_index(t_stack **a);
 t_stack  *sort_list(t_stack* lst);
 t_stack *stack_dup(t_stack *src);
-
-
 
 #endif

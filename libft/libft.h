@@ -6,7 +6,7 @@
 /*   By: srapaila <srapaila@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 20:05:38 by srapaila          #+#    #+#             */
-/*   Updated: 2025/04/07 19:03:15 by srapaila         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:56:06 by srapaila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stddef.h>
 # include <ctype.h>
 # include <stdlib.h>
+# include "ft_printf/ft_printf.h"
 
 size_t	ft_strlen(const char *s);
 char	**ft_split(char const *s, char c);

@@ -14,8 +14,8 @@
 
 void push_two_min(t_stack **a, t_stack **b)
 {
-    long min1;
-    long min2;
+    int min1;
+    int min2;
     int size;
     int i;
 
@@ -27,12 +27,12 @@ void push_two_min(t_stack **a, t_stack **b)
         if((*a)->nbr == min1 || (*a)->nbr == min2)
             pb(a, b);
         else
-            ra(a);
+            ra(a, true);
         i++;
     }
 }
 
-void find_two_min(t_stack *stack, long *min1, long *min2)
+void find_two_min(t_stack *stack, int *min1, int *min2)
 {
     t_stack *current;
 
@@ -58,9 +58,9 @@ void find_two_min(t_stack *stack, long *min1, long *min2)
     }
 }
 
-void ft_swap(long *a, long *b)
+void ft_swap(int *a, int *b)
 {
-    long tmp;
+    int tmp;
 
     tmp = *a;
     *a = *b;

@@ -6,7 +6,7 @@
 /*   By: srapaila <srapaila@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 16:43:06 by srapaila          #+#    #+#             */
-/*   Updated: 2025/04/14 20:35:49 by srapaila         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:56:57 by srapaila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void push_swap(t_stack **a, t_stack **b)
     size = lst_size(*a);
 
     if (size == 2 && (*a)->nbr > (*a)->next->nbr)
-        sa(a);
+        sa(a, true);
     else if (size == 3)
         sort_three(a);
     // else if (size == 5)
@@ -39,20 +39,20 @@ void sort_three(t_stack **a)
     bot = (*a)->next->next->nbr;
 
     if (top > mid && mid < bot && top < bot)
-        sa(a);
+        sa(a, true);
     else if (top > mid && mid < bot)
-        ra(a);
+        ra(a, true);
     else if (top < mid && mid > bot && bot < top)
-        rra(a);
+        rra(a, true);
     else if (top < mid && mid > bot && bot > top)
     {
-        rra(a);
-        sa(a);
+        rra(a, true);
+        sa(a, true);
     }
     else if (top > mid && mid > bot)
     {
-        ra(a);
-        sa(a);
+        ra(a, true);
+        sa(a, true);
     }
 }
 
@@ -67,7 +67,7 @@ void sort_five(t_stack **a, t_stack **b)
 void sort_all(t_stack **a, t_stack **b)
 {
     int size;
-    
+
     size = lst_size(*a);
     if (size-- > 3 && !stack_sorted(*a))
         pb(a, b);

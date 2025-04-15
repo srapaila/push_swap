@@ -6,13 +6,13 @@
 /*   By: srapaila <srapaila@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 17:50:20 by srapaila          #+#    #+#             */
-/*   Updated: 2025/04/08 17:25:16 by srapaila         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:57:11 by srapaila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void sa(t_stack **a)
+void sa(t_stack **a, bool print)
 {
     int tmp;
 
@@ -21,14 +21,12 @@ void sa(t_stack **a)
         tmp = (*a)->nbr;
         (*a)->nbr = (*a)->next->nbr;
         (*a)->next->nbr = tmp;
-        write(1, "sa\n", 3);
+        if(print)
+            ft_printf("sa\n");
     }
-    // printf("Operazione: sa\n");
-    // printf("Pila A: ");
-    // print_stack(*a);
 }
 
-void sb(t_stack **b)
+void sb(t_stack **b, bool print)
 {
     int tmp;
 
@@ -37,23 +35,17 @@ void sb(t_stack **b)
         tmp = (*b)->nbr;
         (*b)->nbr = (*b)->next->nbr;
         (*b)->next->nbr =tmp;
-        write(1, "sb\n", 3);
+        if(print)
+            ft_printf("sb\n");
     }
-    // printf("Operazione: sb\n");
-    // printf("Pila B: ");
-    // print_stack(*b);
 }
 
-void ss(t_stack **a, t_stack **b)
+void ss(t_stack **a, t_stack **b, bool print)
 {
-    sa(a);
-    sb(b);
-    write(1, "ss\n", 3);
-    // printf("Operazione: ss\n");
-    // printf("Pila A: ");
-    // print_stack(*a);
-    // printf("Pila B: ");
-    // print_stack(*b);
+    sa(a, false);
+    sb(b, false);
+    if(print)
+            ft_printf("ss\n");
 }
 
 

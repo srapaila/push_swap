@@ -6,13 +6,13 @@
 /*   By: srapaila <srapaila@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 18:07:44 by srapaila          #+#    #+#             */
-/*   Updated: 2025/04/08 17:25:42 by srapaila         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:50:39 by srapaila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ra(t_stack **a)
+void ra(t_stack **a, bool print)
 {
     t_stack *last;
 
@@ -24,14 +24,12 @@ void ra(t_stack **a)
         last->next = *a;
         *a = (*a)->next;
         last->next->next = NULL;
-        write(1, "ra\n", 3);
-        // printf("Operazione: ra\n");
-        // printf("Pila A: ");
-        // print_stack(*a);
+        if(print)
+            ft_printf("ra\n");
     }
 }
 
-void rb(t_stack **b)
+void rb(t_stack **b, bool print)
 {
     t_stack *last;
 
@@ -43,21 +41,15 @@ void rb(t_stack **b)
         last->next = *b;
         *b = (*b)->next;
         last->next->next = NULL;
-        // write(1, "rb\n", 3);
-        // printf("Operazione: rb\n");
-        // printf("Pila B: ");
-        // print_stack(*b);
+        if(print)
+            ft_printf("rb\n");
     }
 }
 
-void rr(t_stack **a, t_stack **b)
+void rr(t_stack **a, t_stack **b, bool print)
 {
-    ra(a);
-    rb(b);
-    write(1, "rr\n", 3);
-    // printf("Operazione: rr\n");
-    // printf("Pila A: ");
-    // print_stack(*a);
-    // printf("Pila B: ");
-    // print_stack(*b);
+    ra(a, false);
+    rb(b, false);
+    if(print)
+        ft_printf("rr\n");
 }

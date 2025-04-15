@@ -6,7 +6,7 @@
 /*   By: srapaila <srapaila@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 17:57:10 by srapaila          #+#    #+#             */
-/*   Updated: 2025/04/14 18:51:41 by srapaila         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:16:44 by srapaila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void pa(t_stack **a, t_stack **b)
 {
     t_stack *tmp;
-    
+
     if(!*b)
         return ;
     if(*b)

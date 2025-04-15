@@ -6,7 +6,7 @@
 /*   By: srapaila <srapaila@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:31:32 by srapaila          #+#    #+#             */
-/*   Updated: 2025/04/14 21:02:30 by srapaila         ###   ########.fr       */
+/*   Updated: 2025/04/15 19:55:09 by srapaila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ void init_b(t_stack *a, t_stack *b)
 
 void    set_target_b(t_stack *a, t_stack *b)
 {
-    t_stack *target_node = NULL;
-    t_stack *current_a = NULL;
+    t_stack *target_node;
+    t_stack *current_a;
     long   best_match_index;
-    
+
     while (b)
     {
         current_a = a;
@@ -40,9 +40,9 @@ void    set_target_b(t_stack *a, t_stack *b)
             current_a = current_a->next;
         }
         if(best_match_index == LONG_MAX)
-            b->target_pos = get_min_node(a);
+            b->target_node = get_min_node(a);
         else
-            b->target_pos = target_node;
+            b->target_node = target_node;
         b = b->next;
     }
 }
@@ -69,9 +69,7 @@ t_stack *get_min_node(t_stack *stack)
 
 void push_to_a(t_stack **a, t_stack **b)
 {
-    if (!*b || !(*b)->target_pos)
-        return ;
-    pre_push(a, (*b)->target_pos, 'a');
+    pre_push(a, (*b)->target_node, 'a');
     pa(a, b);
 }
 
@@ -80,8 +78,8 @@ void final_sort(t_stack **a)
     while((*a)->nbr != get_min_node(*a)->nbr)
     {
         if (get_min_node(*a)->above_median)
-            ra(a);
+            ra(a, true);
         else
-            rra(a);
+            rra(a, true);
     }
 }
