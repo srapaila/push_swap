@@ -6,7 +6,7 @@
 /*   By: srapaila <srapaila@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 16:31:32 by srapaila          #+#    #+#             */
-/*   Updated: 2025/04/14 20:09:26 by srapaila         ###   ########.fr       */
+/*   Updated: 2025/04/14 21:02:30 by srapaila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void init_b(t_stack *a, t_stack *b)
 
 void    set_target_b(t_stack *a, t_stack *b)
 {
-    t_stack *target_node;
-    t_stack *current_a;
+    t_stack *target_node = NULL;
+    t_stack *current_a = NULL;
     long   best_match_index;
     
     while (b)
@@ -77,12 +77,9 @@ void push_to_a(t_stack **a, t_stack **b)
 
 void final_sort(t_stack **a)
 {
-    t_stack *min_node;
-
-    min_node = get_min_node(*a);
-    while((*a)->nbr != min_node->nbr)
+    while((*a)->nbr != get_min_node(*a)->nbr)
     {
-        if (min_node->above_median)
+        if (get_min_node(*a)->above_median)
             ra(a);
         else
             rra(a);

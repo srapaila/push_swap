@@ -6,7 +6,7 @@
 /*   By: srapaila <srapaila@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/07 16:45:27 by srapaila          #+#    #+#             */
-/*   Updated: 2025/04/14 20:20:49 by srapaila         ###   ########.fr       */
+/*   Updated: 2025/04/14 20:56:15 by srapaila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void    set_target_a(t_stack *a, t_stack *b)
             }
             current_b = current_b->next;
         }
-        if(best_match_index == LONG_MIN)
+        if (best_match_index == LONG_MIN)
             a->target_pos = get_max_node(b);
         else
             a->target_pos = target_node;
@@ -100,7 +100,6 @@ void set_cheapest(t_stack *stack)
     cheapest = LONG_MAX;
     while(stack)
     {
-        stack->cheapest = false;
         if (stack->push_cost < cheapest)
         {
             cheapest = stack->push_cost;
@@ -108,6 +107,5 @@ void set_cheapest(t_stack *stack)
         }
         stack = stack->next;
     }
-    if (cheapest_node)
         cheapest_node->cheapest = true;
 }
