@@ -6,7 +6,7 @@
 /*   By: srapaila <srapaila@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 19:57:25 by srapaila          #+#    #+#             */
-/*   Updated: 2025/04/14 16:50:52 by srapaila         ###   ########.fr       */
+/*   Updated: 2025/04/16 16:10:24 by srapaila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,17 @@ int	ft_atol(const char *str)
 
 void free_str(char **str)
 {
-    char *tmp;
-
+    char **tmp;
 
     if(!str)
         return ;
+    tmp = str;
     while (*str)
     {
-        tmp = *str;
+        free(*str);
         str++;
-        free(tmp);
     }
-    *str = NULL;
+    free(tmp);
 }
 void free_lst(t_stack **lst)
 {

@@ -6,7 +6,7 @@
 /*   By: srapaila <srapaila@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 18:14:12 by srapaila          #+#    #+#             */
-/*   Updated: 2025/04/04 18:57:58 by srapaila         ###   ########.fr       */
+/*   Updated: 2025/04/16 16:12:03 by srapaila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	k = 0;
-	ris = (char **) malloc(sizeof(char) * (ft_wordcount(s, c) + 1));
+	ris = (char **) malloc(sizeof(char *) * (ft_wordcount(s, c) + 1));
 	if (!ris)
 		return (NULL);
 	while (i < ft_wordcount(s, c) && s[k] != '\0')

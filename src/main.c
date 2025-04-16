@@ -6,7 +6,7 @@
 /*   By: srapaila <srapaila@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 15:44:31 by srapaila          #+#    #+#             */
-/*   Updated: 2025/04/15 15:07:18 by srapaila         ###   ########.fr       */
+/*   Updated: 2025/04/16 16:14:34 by srapaila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ t_stack *two_args(char **argv)
     long j;
 
     a = NULL;
-    i = 0;
+    i = -1;
     tmp = ft_split(argv[1], 32);
-    while(tmp[i])
+    while(tmp[++i])
     {
         if(!is_valid_number(tmp[i]))
         {
@@ -33,11 +33,9 @@ t_stack *two_args(char **argv)
         j = ft_atol(tmp[i]);
         lst_add_back(&a, new_node(j));
         if(!a)
-            return(NULL);
-        i++;
+            return (NULL);
     }
     free_str(tmp);
-    free(tmp);
     return (a);
 }
 
@@ -87,9 +85,8 @@ int main(int argc, char **argv)
     if(check_dup(a))
     {
         free_lst(&a);
-        return(write(2, "Error\n", 6), -1);
+        return (write(2, "Error\n", 6), -1);
     }
-    //put_index(&a);
     if (!stack_sorted(a))
     {
         push_swap(&a, &b);

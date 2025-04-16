@@ -1,8 +1,8 @@
 NAME = push_swap
 
 SRC = src/main.c src/list_utils.c src/check.c src/push_swap.c src/push.c \
-		src/reverse_rotate.c src/rotate.c src/swap.c src/utils.c src/utils_sort_five.c \
-		src/sort_utils.c src/sort_utils2.c src/index_utils.c src/sort_utils3.c
+		src/reverse_rotate.c src/rotate.c src/swap.c src/utils.c  \
+		src/sort_utils.c src/sort_utils2.c src/sort_utils3.c
 OBJ = $(SRC:.c=.o)
 
 FLAGS = -Wall -Wextra -Werror -g

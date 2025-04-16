@@ -6,7 +6,7 @@
 /*   By: srapaila <srapaila@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 16:43:06 by srapaila          #+#    #+#             */
-/*   Updated: 2025/04/15 19:56:57 by srapaila         ###   ########.fr       */
+/*   Updated: 2025/04/16 15:06:49 by srapaila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ void push_swap(t_stack **a, t_stack **b)
         sa(a, true);
     else if (size == 3)
         sort_three(a);
-    // else if (size == 5)
-    //     sort_five(a, b);
     else
         sort_all(a, b);
 }
@@ -54,14 +52,6 @@ void sort_three(t_stack **a)
         ra(a, true);
         sa(a, true);
     }
-}
-
-void sort_five(t_stack **a, t_stack **b)
-{
-    push_two_min(a, b);
-    sort_three(a);
-    pa(a ,b);
-    pa(a ,b);
 }
 
 void sort_all(t_stack **a, t_stack **b)
