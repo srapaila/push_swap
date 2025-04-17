@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: srapaila <srapaila@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 20:05:38 by srapaila          #+#    #+#             */
-/*   Updated: 2025/04/17 16:59:23 by srapaila         ###   ########.fr       */
+/*   Created: 2024/12/04 16:09:02 by srapaila          #+#    #+#             */
+/*   Updated: 2024/12/12 17:43:27 by srapaila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-# include <unistd.h>
-# include <stdio.h>
-# include <string.h>
-# include <stddef.h>
-# include <ctype.h>
-# include <stdlib.h>
-# include "ft_printf/ft_printf.h"
-# include "get_next_line/get_next_line.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
+# include <stdlib.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include <stdio.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+char	*get_next_line(int fd);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_restof(char *buffer);
+char	*ft_getline(char *buf);
+char	*ft_read(int fd, char *buf);
 size_t	ft_strlen(const char *s);
-char	**ft_split(char const *s, char c);
-int		ft_isdigit(int c);
-int		ft_strcmp(const char *s1, const char *s2);
+void	*ft_calloc(size_t nmemb, size_t size);
 
 #endif

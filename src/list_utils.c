@@ -6,7 +6,7 @@
 /*   By: srapaila <srapaila@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/26 20:02:58 by srapaila          #+#    #+#             */
-/*   Updated: 2025/04/07 19:18:59 by srapaila         ###   ########.fr       */
+/*   Updated: 2025/04/17 17:28:40 by srapaila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_stack	*new_node(int content)
 	return (node);
 }
 
-void    lst_add_back(t_stack **lst, t_stack *new)
+void	lst_add_back(t_stack **lst, t_stack *new)
 {
 	t_stack	*last;
 
@@ -39,7 +39,6 @@ void    lst_add_back(t_stack **lst, t_stack *new)
 	last->next = new;
 }
 
-
 t_stack	*lst_last(t_stack *lst)
 {
 	if (!lst)
@@ -49,12 +48,12 @@ t_stack	*lst_last(t_stack *lst)
 	return (lst);
 }
 
-int lst_size(t_stack *lst)
+int	lst_size(t_stack *lst)
 {
-	int size;
+	int	size;
 
 	size = 0;
-	while(lst)
+	while (lst)
 	{
 		size++;
 		lst = lst->next;

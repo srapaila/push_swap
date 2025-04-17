@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: srapaila <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: srapaila <srapaila@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:07:25 by srapaila          #+#    #+#             */
-/*   Updated: 2024/11/18 15:20:55 by srapaila         ###   ########.fr       */
+/*   Updated: 2025/04/16 16:39:42 by srapaila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,3 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
-/*
-#include <stdio.h>
-#include <string.h>
-
-int	main(void)
-{
-	char str[] = "Hello";
-	int	x,y;
-
-	x = ft_strlen(str);
-	y = strlen(str);
-	printf("%d\n", x);
-	printf("%d\n", x);
-	return (0);
-}*/
